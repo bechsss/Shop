@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Shop</string>
+    <string name="contacts_text">Контакты</string>
+    <string name="about_text">Про нас</string>
+    <string name="main_scene_text">Главная</string>
+    <string name="Logo_of_app_1">Mate</string>
+    <string name="Logo_of_app_2">Place</string>
+    <string name="photo">Фото</string>
+    <string name="course_FIO">ФИО:</string>
+    <string name="course_Opit">Опыт:</string>
+    <string name="description">Имею большой опыт работы с фоторедакторами. Моё приоритетное направление портретная и предметная съёмка. Постоянно участвую в различных выставках, являюсь членом клуба «Российское фото». В работе использую собственное профессиональное оборудование. Лучшие мои работы можно посмотреть в портфолио.</string>
+</resources>
