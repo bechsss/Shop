@@ -19,52 +19,19 @@
 
 
         <TextView
-            android:id="@+id/Contacts"
-            android:layout_width="100dp"
-            android:layout_height="145dp"
-            android:layout_marginBottom="136dp"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:rotation="-90"
-            android:text="@string/contacts_text"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="TextSizeCheck,VisualLintBounds" />
-
-        <TextView
-            android:id="@+id/about"
-            android:layout_width="100dp"
-            android:layout_height="145dp"
-            android:layout_marginBottom="150dp"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:rotation="-90"
-            android:text="@string/about_text"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/Contacts"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="TextSizeCheck,VisualLintBounds" />
-
-        <TextView
             android:id="@+id/main_scene"
             android:layout_width="100dp"
             android:layout_height="145dp"
-            android:layout_marginBottom="150dp"
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
             android:rotation="-90"
             android:text="@string/main_scene_text"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/about"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="TextSizeCheck,VisualLintBounds" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -72,8 +39,9 @@
         android:id="@+id/coursePageImage"
         android:layout_width="0dp"
         android:layout_height="240dp"
-        android:scaleType="centerCrop"
         android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:transitionName="courseImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="parent"
@@ -192,6 +160,7 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/app_name"
         android:minHeight="48dp"
+        android:onClick="addToCart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/coursePageText"

@@ -1,13 +1,15 @@
 package com.example.shop;
 
-import static com.example.shop.R.id.coursePageFIO;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.example.shop.model.Order;
 
 public class Courses_contact_Page extends AppCompatActivity {
 
@@ -26,9 +28,17 @@ public class Courses_contact_Page extends AppCompatActivity {
         courseBg.setBackgroundColor(getIntent().getIntExtra("courseBg", 0));
         courseImage.setImageResource(getIntent().getIntExtra("courseImage", 0));
         courseTitle.setText(getIntent().getStringExtra("courseTitle"));
-        courseFIO.setText(getIntent().getStringExtra(" courseFIO"));
+        courseFIO.setText(getIntent().getStringExtra("courseFIO"));
         courseOpit.setText(getIntent().getStringExtra("courseOpit"));
         courseText.setText(getIntent().getStringExtra("courseText"));
 
     }
+
+    public void addToCart(View view) {
+        int item_id = getIntent().getIntExtra("courseId", 0);
+        Order.items_id.add(item_id);
+        Toast.makeText(this, "Добавлено", Toast.LENGTH_LONG).show();
+
+    }
 }
+

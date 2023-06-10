@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Shop"
         tools:targetApi="31">
         <activity
+            android:name=".OrderPage"
+            android:exported="false" />
+        <activity
             android:name=".Courses_contact_Page"
             android:exported="false" />
         <activity

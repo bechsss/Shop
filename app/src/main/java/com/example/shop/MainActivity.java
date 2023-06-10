@@ -1,11 +1,12 @@
 package com.example.shop;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-
-import android.os.Bundle;
 
 import com.example.shop.adapter.CategoryAdapter;
 import com.example.shop.adapter.courseAdapter;
@@ -20,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView categoryRecycler, itemRecycler;
 
     CategoryAdapter categoryAdapter;
-    courseAdapter courseAdapter;
+    static courseAdapter courseAdapter;
+    static List<course> courseList = new ArrayList<>();
+    static List<course> fullCoursesList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +38,18 @@ public class MainActivity extends AppCompatActivity {
 
         SetCategoryRecycler(categoryList);
 
-        List<course> courseList = new ArrayList<>();
-        courseList.add(new course(1, "frame_8", "Купить контакты", "5 лет", "Смирнов Алексей", "#424345", "Имею большой опыт работы с фоторедакторами. Моё приоритетное направление портретная и предметная съёмка. Постоянно участвую в различных выставках, являюсь членом клуба «Российское фото». В работе использую собственное профессиональное оборудование. Лучшие мои работы можно посмотреть в портфолио."));
-        courseList.add(new course(2, "frame_8", "Купить контакты", "3 года", "Иванова Анастасия","#424345", "Большой опыт создания качественных и высокоэстетичных фотографий и изображений для использования в рекламе, маркетинге, журналистике и иных сферах. Являюсь профессиональным пользователем программ Adobe Lightroom и Adobe Photoshop, Capture One."));
 
+        courseList.add(new course(1, "frame_8", "Купить контакты", "5 лет", "Смирнов Алексей", "#424345", "Имею большой опыт работы с фоторедакторами. Моё приоритетное направление портретная и предметная съёмка. Постоянно участвую в различных выставках, являюсь членом клуба «Российское фото». В работе использую собственное профессиональное оборудование. Лучшие мои работы можно посмотреть в портфолио.", 1));
+        courseList.add(new course(2, "frame_8", "Купить контакты", "3 года", "Иванова Анастасия","#424345", "Большой опыт создания качественных и высокоэстетичных фотографий и изображений для использования в рекламе, маркетинге, журналистике и иных сферах. Являюсь профессиональным пользователем программ Adobe Lightroom и Adobe Photoshop, Capture One.", 1));
+
+        fullCoursesList.addAll(courseList);
 
         SetCourseRecycler(courseList);
+    }
 
-
+    public void openShoppingCart(View view){
+        Intent intent = new Intent(this, OrderPage.class);
+        startActivity(intent);
     }
 
     private void SetCourseRecycler(List<course> courseList) {
@@ -65,5 +72,22 @@ public class MainActivity extends AppCompatActivity {
         categoryAdapter = new CategoryAdapter(this, categoryList);
         categoryRecycler.setAdapter(categoryAdapter);
 
+    }
+
+    public static void showCoursesByCategory(int category){
+
+        courseList.clear();
+        courseList.addAll(fullCoursesList);
+
+        List<course> filterCourses = new ArrayList<>();
+        for(course c : courseList) {
+            if(c.getCategory() == category)
+                filterCourses.add(c);
+        }
+
+        courseList.clear();
+        courseList.addAll(filterCourses);
+
+        courseAdapter.notifyDataSetChanged();
     }
 }
